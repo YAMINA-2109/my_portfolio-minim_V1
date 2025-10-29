@@ -740,7 +740,6 @@
       </p>
   
       <div class="contact-content">
-        <!-- ✅ Formulaire corrigé avec ton style et Formspree -->
         <div class="contact-form">
           <form id="contactForm" action="https://formspree.io/f/mqagblqv" method="POST">
             <input type="hidden" name="_subject" value="New message from MinaCore portfolio">
@@ -781,20 +780,20 @@
                 });
                 if (res.ok) {
                   form.reset();
-                  statusBox.textContent = '✅ Thanks! Your message was sent.';
+                  statusBox.textContent = ' Thanks! Your message was sent.';
                   statusBox.style.cssText =
                     "padding:12px;border:1px solid rgba(255,255,255,.2);border-radius:10px;background:rgba(0,207,255,.08);color:#fff";
                 } else {
-                  statusBox.textContent = '⚠️ Sorry, something went wrong. Please email me at minacore.ai@gmail.com.';
+                  statusBox.textContent = ' Sorry, something went wrong. Please email me at minacore.ai@gmail.com.';
                 }
               } catch {
-                statusBox.textContent = '⚠️ Network error. Please email me at minacore.ai@gmail.com.';
+                statusBox.textContent = ' Network error. Please email me at minacore.ai@gmail.com.';
               }
             });
           </script>
         </div>
   
-        <!-- Social media section conservée -->
+        <!-- Social media section -->
         <div class="contact-social">
           <h3>Connect With Me</h3>
           <div class="social-icons">
