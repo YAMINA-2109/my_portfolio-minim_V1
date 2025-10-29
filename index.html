@@ -739,25 +739,86 @@
         </p>
         <div class="contact-content">
           <div class="contact-form">
-            <form>
+            <!-- Nouveau formulaire connecté à ton mail -->
+            <form
+              action="https://formsubmit.co/minacore.ai@gmail.com"
+              method="POST"
+            >
+              <!-- Sécurité & options -->
+              <input
+                type="hidden"
+                name="_subject"
+                value="New message from MinaCore portfolio"
+              />
+              <input type="hidden" name="_captcha" value="true" />
+              <input type="hidden" name="_template" value="table" />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://yamina-2109.github.io/my_portfolio-minim_V1/#thanks"
+              />
+              <input type="text" name="_honey" style="display: none" />
+
+              <!-- Champs visibles (avec ton style) -->
               <div class="form-group">
-                <input type="text" placeholder="Your Name" required />
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Your Name"
+                  required
+                />
               </div>
               <div class="form-group">
-                <input type="email" placeholder="Your Email" required />
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Your Email"
+                  required
+                />
               </div>
               <div class="form-group">
                 <textarea
+                  id="message"
+                  name="message"
                   placeholder="Your Message"
                   rows="5"
                   required
                 ></textarea>
               </div>
+
+              <label
+                style="
+                  display: flex;
+                  gap: 0.5rem;
+                  align-items: center;
+                  margin: 0.6rem 0;
+                "
+              >
+                <input type="checkbox" required />
+                I agree to be contacted about this request.
+              </label>
+
               <button type="submit" class="btn btn-primary">
                 Send Message
               </button>
             </form>
+
+            <!-- Message visuel de confirmation -->
+            <div id="thanks" style="margin-top: 1rem"></div>
+            <script>
+              if (location.hash === "#thanks") {
+                const box = document.getElementById("thanks");
+                box.innerHTML =
+                  " Thanks! Your message was sent successfully.";
+                box.style.cssText =
+                  "padding:12px;border:1px solid rgba(255,255,255,.2);border-radius:10px;background:rgba(0,207,255,.08);color:white;";
+              }
+            </script>
           </div>
+
+          <!-- Social links : inchangés -->
           <div class="contact-social">
             <h3>Connect With Me</h3>
             <div class="social-icons">
