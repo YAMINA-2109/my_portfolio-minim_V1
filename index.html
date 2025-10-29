@@ -729,53 +729,107 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
-   <form id="contactForm" action="https://formspree.io/f/mqagblqv" method="POST">
-  <input type="hidden" name="_subject" value="New message from MinaCore portfolio">
-  <div class="form-group">
-    <input id="name" name="name" type="text" placeholder="Your Name" required />
-  </div>
-  <div class="form-group">
-    <input id="email" name="email" type="email" placeholder="Your Email" required />
-  </div>
-  <div class="form-group">
-    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-  </div>
-  <label style="display:flex;gap:.5rem;align-items:center;margin:.6rem 0;">
-    <input type="checkbox" required>
-    I agree to be contacted about this request.
-  </label>
-  <button type="submit" class="btn btn-primary">Send Message</button>
-</form>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Let's Build Something Great Together</h2>
+      <p class="contact-subtitle">
+        Looking for an AI-powered solution or modern web app?<br />Let's
+        collaborate and bring your vision to life.
+      </p>
+  
+      <div class="contact-content">
+        <!-- ✅ Formulaire corrigé avec ton style et Formspree -->
+        <div class="contact-form">
+          <form id="contactForm" action="https://formspree.io/f/mqagblqv" method="POST">
+            <input type="hidden" name="_subject" value="New message from MinaCore portfolio">
+  
+            <div class="form-group">
+              <input id="name" name="name" type="text" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input id="email" name="email" type="email" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+  
+            <label style="display:flex;gap:.5rem;align-items:center;margin:.6rem 0;">
+              <input type="checkbox" required>
+              I agree to be contacted about this request.
+            </label>
+  
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+  
+          <div id="formStatus" style="margin-top:12px;"></div>
+  
+          <script>
+            const form = document.getElementById('contactForm');
+            const statusBox = document.getElementById('formStatus');
+  
+            form.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              statusBox.textContent = 'Sending...';
+              const data = new FormData(form);
+              try {
+                const res = await fetch(form.action, {
+                  method: 'POST',
+                  body: data,
+                  headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                  form.reset();
+                  statusBox.textContent = '✅ Thanks! Your message was sent.';
+                  statusBox.style.cssText =
+                    "padding:12px;border:1px solid rgba(255,255,255,.2);border-radius:10px;background:rgba(0,207,255,.08);color:#fff";
+                } else {
+                  statusBox.textContent = '⚠️ Sorry, something went wrong. Please email me at minacore.ai@gmail.com.';
+                }
+              } catch {
+                statusBox.textContent = '⚠️ Network error. Please email me at minacore.ai@gmail.com.';
+              }
+            });
+          </script>
+        </div>
+  
+        <!-- Social media section conservée -->
+        <div class="contact-social">
+          <h3>Connect With Me</h3>
+          <div class="social-icons">
+            <a
+              href="https://www.linkedin.com/in/atmaoui-yamina-4988a3220/"
+              target="_blank"
+              class="social-icon"
+              title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/YAMINA-2109"
+              target="_blank"
+              class="social-icon"
+              title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="mailto:minacore.ai@gmail.com"
+              class="social-icon"
+              title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+          <div class="signature">
+            <p>
+              By <strong>Yamina Atmaoui</strong> | MinaCore — Where AI Meets Humanity
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div id="formStatus" style="margin-top:12px;"></div>
 
-<script>
-  const form = document.getElementById('contactForm');
-  const statusBox = document.getElementById('formStatus');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    statusBox.textContent = 'Sending...';
-    const data = new FormData(form);
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        form.reset();
-        statusBox.textContent = ' Thanks! Your message was sent.';
-        statusBox.style.cssText = "padding:12px;border:1px solid rgba(255,255,255,.2);border-radius:10px;background:rgba(0,207,255,.08);color:#fff";
-      } else {
-        statusBox.textContent = ' Sorry, something went wrong. Please email me at minacore.ai@gmail.com.';
-      }
-    } catch {
-      statusBox.textContent = ' Network error. Please email me at minacore.ai@gmail.com.';
-    }
-  });
-</script>
 
     <!-- Footer -->
     <footer class="footer">
